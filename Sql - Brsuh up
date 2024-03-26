@@ -1,0 +1,47 @@
+pip install mysql-connector-python
+
+import mysql.connector as conn
+
+mydb = conn.connect(host = 'localhost', user = 'YOUR_USER_NAME', passwd ='YOUR_DATABASE')
+
+mydb
+
+cursor = mydb.cursor()
+
+cursor.fetchall()
+
+cursor = mydb.cursor()
+
+cursor.execute("CREATE DATABASE IF NOT EXIST test")
+
+CREATE TABLE IF NOT EXIST test.vicky(ID int(10) PRIMARY KEY, 
+                                     FIRST_NAME VARCHAR(30), 
+                                     LAST_NAME VARCHAR(30), 
+                                     PH_NO INT(15))
+
+# --> TO USE AND SHOW
+
+cursor.execute('USE test')
+
+cursor.execute('SHOW TABLES')
+
+cursor.execute('INSERT INTO test.vicky (ID, FIRST_NAME, LAST_NAME, PH_NO) VALUES (1, vignesh, M, 0987654567)')
+
+mydb.commit()
+mydb.close()
+
+
+                                     
+                                     
+                                     
+                                    
+                                     
+                                     
+
+
+
+
+
+
+
+
