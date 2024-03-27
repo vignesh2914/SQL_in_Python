@@ -30,6 +30,49 @@ cursor.execute('INSERT INTO test.vicky (ID, FIRST_NAME, LAST_NAME, PH_NO) VALUES
 mydb.commit()
 mydb.close()
 
+---------------------------------------------------------------------------------------
+
+27-03-24
+
+To fetch multiple data from a file use for loop 
+
+from a csv we will read the data
+ 
+import csv
+with open('xyz.data' ,'r') as f :
+    xyz_data = csv.reader(f , delimiter ='\n')
+    for i in xyz_data:
+        print(i[0])
+        
+cursor.execute('create table test_table.xyzdata(col1 INT(10) ,col2 float(10,5),col3 float(10,5) ,col4 float(10,5) , col5 float(10,5),col6 float(10,5) ,clo7 float(10,5) , col8 float(10,5) , col9 float(10,5) , col10 float(10,5) , col11 INT(10)) ')
+
+cursor.execute('insert into test_table.xyzdata values(1,1.52101,13.64,4.49,1.10,71.78,0.06,8.75,0.00,0.00,1)')
+mydb.commit()
+cursor.execute('select * from test_table.xyzdata')
+cursor.fetchall()
+
+
+with open('xyz.data','r') as f:
+    glass_data=csv.reader(f,delimiter='\n')
+    for i in glass_data:
+        print(type(i[0]))
+        print(f'insert into glassdata values ({str(i[0])})')
+        cursor.execute('insert into test_table.xyzdata values({values})'.format(values = ((i[0]))))
+      
+---------------------------------------------------------------------------------------------------------------
+
+DELETE operation-
+    
+cursor.execute("DELETE test_table.xyzdata SET col1 = 6, col2 = 8
+
+
+        
+        
+        
+
+
+
+
 
                                      
                                      
